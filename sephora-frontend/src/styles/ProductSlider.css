@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+  }
+  
+  .product-slider-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+    display: flex;
+    align-items: center;
+  }
+  
+  .product-slider-container:hover .slider-btn {
+    opacity: 1;
+  }
+  
+  .product-slider {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 20px 40px;
+  }
+  
+  .product-card {
+    flex: 0 0 calc(100% / 6 - 20px);
+    background-color: #f8f8f8;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .product-card h3 {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  .product-card p {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .product-card .price {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .product-label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: black;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 3px;
+  }
+  
+  .stars {
+    display: inline-block;
+  }
+  
+  .star {
+    color: #ddd;
+  }
+  
+  .star.filled {
+    color: #f5c518;
+  }
+  
+  .stars-reviews {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #555;
+  }
+  
+  .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .slider-btn.prev {
+    left: 10px;
+  }
+  
+  .slider-btn.next {
+    right: 10px;
+  }
+  
+  .slider-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
