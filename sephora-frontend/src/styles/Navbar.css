@@ -197,3 +197,14 @@
   border: 1px solid #c3e6cb;
   border-radius: 4px;
 }
+.navbar-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  cursor: pointer; /* Makes it clear the logo is clickable */
+  text-decoration: none; /* Prevents underline */
+}
+
+.navbar-logo:hover {
+  text-decoration: none; /* Ensures no underline on hover */
+}

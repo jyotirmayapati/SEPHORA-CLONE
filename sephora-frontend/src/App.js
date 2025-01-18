@@ -1,28 +1,32 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import Products from "./pages/Products";
-import Cart from "./pages/Cart";
-import Login from "./pages/Login";
-import BeautySlider from "./components/BeautySlider";
-import ProductSlider from "./components/ProductSlider";
+import ProductDetails from "./components/ProductDetails";
+import { BasketProvider } from "./context/BasketContext";
+import CartPage from "./pages/CartPage";
+import ProductBeautyDetails from "./components/ProductBeautyDetails";
+import Footer from "./components/Footer";
+import SecondNavbar from "./components/SecondNavbar";
 
 const App = () => {
   return (
-    <Router>
-      <Navbar />
-      {/* <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
-      <Footer /> */}
-      <BeautySlider />
-      <ProductSlider />
-    </Router>
+    <BasketProvider>
+      <Router>
+        <Navbar />
+        <SecondNavbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/product-details" element={<ProductDetails />} />
+          <Route
+            path="/productbeauty-details"
+            element={<ProductBeautyDetails />}
+          />
+          <Route path="/cart" element={<CartPage />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </BasketProvider>
   );
 };
 

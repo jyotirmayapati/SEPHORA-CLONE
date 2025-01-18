@@ -1,0 +1,108 @@
+.beauty-offers-page {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    line-height: 1.6;
+  }
+  
+  .header-section {
+    display: flex;
+    background: #f7f7f7;
+    padding: 20px;
+    align-items: center;
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .header-content img {
+    max-width: 150px;
+    margin-right: 20px;
+  }
+  
+  .header-text {
+    flex: 1;
+  }
+  
+  .header-text h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .header-text button {
+    background: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .header-text button:hover {
+    background: #444;
+  }
+  
+  .products-section {
+    margin-top: 20px;
+  }
+  
+  .products-section h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .products-grid {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .product-card {
+    flex: 1;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
+  .product-card img {
+    max-width: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .benefits-section {
+    margin-top: 20px;
+  }
+  
+  .benefits-section h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .benefits-grid {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .benefit-card {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .benefit-card img {
+    max-width: 80px;
+    margin-bottom: 10px;
+  }
+  
+  .rewards-section {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .rewards-section img {
+    max-width: 150px;
+    margin-top: 10px;
+  }
+  

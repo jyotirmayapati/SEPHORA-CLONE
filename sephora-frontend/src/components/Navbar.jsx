@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/Navbar.css";
+import { useBasket } from "../context/BasketContext";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -11,6 +13,8 @@ const Navbar = () => {
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const { basketItems } = useBasket();
+  const navigate = useNavigate();
 
   const handleOutsideClick = (e) => {
     if (
@@ -61,13 +65,12 @@ const Navbar = () => {
         setSuccessMessage("Sign In successful!");
         setFirstName(response.data.user.firstName);
         setShowSignInPopup(false);
-
+        localStorage.setItem("user", JSON.stringify(response.data.user)); // Save user to localStorage
         setTimeout(() => setSuccessMessage(""), 2000);
       }
     } catch (err) {
       console.error(err.response?.data?.message || "Error signing in");
       setSuccessMessage("Invalid credentials. Please create an account.");
-
       setTimeout(() => setSuccessMessage(""), 2000);
     }
   };
@@ -94,13 +97,12 @@ const Navbar = () => {
         setShowAccountDetails(false);
         setEmail("");
         setFirstName(response.data.user.firstName);
-
+        localStorage.setItem("user", JSON.stringify(response.data.user)); // Save user to localStorage
         setTimeout(() => setSuccessMessage(""), 2000);
       }
     } catch (err) {
       console.error(err.response?.data?.message || "Error creating account");
       setSuccessMessage("Error creating account");
-
       setTimeout(() => setSuccessMessage(""), 2000);
     }
   };
@@ -108,7 +110,15 @@ const Navbar = () => {
   const handleSignOut = () => {
     setFirstName("");
     setShowDropdown(false);
+    localStorage.removeItem("user"); // Remove user from localStorage
   };
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      setFirstName(user.firstName);
+    }
+  }, []);
 
   return (
     <div>
@@ -146,13 +156,14 @@ const Navbar = () => {
           <div className="navbar-item">
             <i className="fa fa-heart"></i>
           </div>
-          <div className="navbar-item">
+          <div className="navbar-item" onClick={() => navigate("/cart")}>
             <i className="fa fa-shopping-cart"></i>
+            <span>{basketItems.length}</span> {/* Display total number of items */}
           </div>
         </div>
       </div>
 
-      <div className="navbar-categories">
+      {/* <div className="navbar-categories">
         <span>New</span>
         <span>Brands</span>
         <span>Makeup</span>
@@ -165,7 +176,7 @@ const Navbar = () => {
         <span>Beauty Under $20</span>
         <span>Gifts & Gift Cards</span>
         <span>Sale & Offers</span>
-      </div>
+      </div> */}
 
       {showDropdown && (
         <div className="dropdown-menu">
