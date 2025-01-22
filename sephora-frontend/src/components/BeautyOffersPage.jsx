@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/BeautyOffersPage.css';
-import BeautyOffersSlider from './BeautyOffersSlider'; // Assuming the slider component already exists
+import BeautyOffersSlider from './BeautyOffersSlider'; 
 
 const BeautyOffersPage = () => {
   return (

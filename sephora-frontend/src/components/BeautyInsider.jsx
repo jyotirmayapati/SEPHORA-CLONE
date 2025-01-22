@@ -4,7 +4,7 @@ import '../styles/BeautyOffersSlider.css';
 
 const BeautyInsider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const visibleCards = 4; // Number of visible cards
+  const visibleCards = 4; 
   const navigate = useNavigate();
 
   const offers = [
@@ -59,10 +59,9 @@ const BeautyInsider = () => {
   };
 
   const handleCardClick = (offer) => {
-    navigate('/productbeauty-details', { state: { offer } }); // Navigate with offer details
+    navigate('/productbeauty-details', { state: { offer } }); 
   };
 
-  // Get the visible offers
   const visibleOffers = [
     ...offers.slice(currentIndex, currentIndex + visibleCards),
     ...offers.slice(0, Math.max(0, (currentIndex + visibleCards) - offers.length)),
@@ -84,7 +83,7 @@ const BeautyInsider = () => {
             <div
               key={index}
               className="card active"
-              onClick={() => handleCardClick(offer)} // Navigate on card click
+              onClick={() => handleCardClick(offer)} 
             >
               <img src={offer.img} alt={`Offer ${index + 1}`} />
               <h3>{offer.title}</h3>
